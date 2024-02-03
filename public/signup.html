@@ -43,7 +43,99 @@
                           <span class="h1 fw-bold mb-0"><img width="200px" src="/images/logo.jpeg"></span>
                         </div>
       
-                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; ;">Sign in</h5>
+
+                        <div  class="signup-welcome">
+                            <h2>Register Your Business</h2>
+                            <p>Please provide all required details to register your business with us</p>
+                        </div>
+                        <div>
+                    
+                            <label class="form-label" for="Username">Business Owner :</label>
+                            <input type="text" placeholder="ownername" class="form-control form-control-lg" id="Username" name="Username"/>
+                    
+                        </div><br>
+                        <div>
+                            <label class="form-label" for="Bname">Business Name :</label>
+                            <input placeholder="name of your business" type="tel" class="form-control form-control-lg" id="Bname" name="Bname"/>
+                    
+                        </div><br>
+                        <div>
+                            <label class="form-label" for="PhNo" maxlength = "10">Contact Number :</label>
+                            <input type="text" class="form-control form-control-lg" id="PhNo" name="PhNo"/>
+                    
+                        </div><br>
+                        <div>
+                            <label class="form-label"  for="Email">Email :</label>
+                            <input type="email" placeholder="business@example.com" class="form-control form-control-lg" id="Email" name="Email"/>
+                    
+                        </div><br>
+                        <div>
+                            <label class="form-label"  for="Address"> Business Address :</label>
+                            <input type="text" placeholder="Street Address" class="form-control form-control-lg" id="address-l1" name="address-l1"/><br>
+                            <input type="text" placeholder="Street Address Line 2" class="form-control form-control-lg" id="address-l2" name="address-l2"/><br>
+                            <input type="text" placeholder="City" class="form-control form-control-lg" id="address-l3" name="address-l3"/><br>
+                            <input type="text" placeholder="State" class="form-control form-control-lg" id="address-l4" name="address-l4"/><br>
+                            <input type="number" placeholder="Pincode" class="form-control form-control-lg" id="pincode" name="pincode"/><br>
+                        </div><br>
+                        <div>
+                          <label class="form-label"  for="BizType">Type of Business :</label>
+                          <input type="text" placeholder="Type" class="form-control form-control-lg" id="BizType" name="BizType"/>                  
+                        </div><br>
+                        <div>
+                          <label class="form-label" for="subscription">Choose a subscription:</label>
+                          <select id="subscription" name="subscription">
+                            <option value="free" selected>Free</option>
+                            <option value="pro">Pro</option>
+                            <option value="enterprise">Enterprise</option>
+                          </select>
+                        </div>   
+                       <br>
+                        
+                        <!-- <div>
+                          <label class="form-label"  for="Aadhar" maxlength = "12">Aadhar Virtual Id :</label>
+                          <input type="text" placeholder="" class="form-control form-control-lg" id="Aadhar" name="Aadhar"/>                  
+                        </div><br> -->
+                        <div>
+                          <label class="form-label"  for="Username" minlength="8"> Set Your Username :</label>
+                          <input type="text" placeholder="" class="form-control form-control-lg" id="User" name="User"/>                  
+                        </div><br>
+                        <div>
+                          <label class="form-label"  for="PWord" minlength="6"  > Set Your Password :</label>
+                          <input type="password" placeholder="" class="form-control form-control-lg" id="PWord" name="PWord" oninput="validatePassword()"/>      
+                          <div id="password-error" class="error-message"></div>            
+                        </div><br>
+<script>
+    function showAlert() {
+        // Show the alert message
+        alert("Please wait for 24-48 hours for the verification to complete.");
+    }
+  function validatePassword() {
+    var passwordInput = document.getElementById('PWord');
+    var password = passwordInput.value;
+
+    // Define regular expressions for each required character type
+    var uppercaseRegex = /[A-Z]/;
+    var lowercaseRegex = /[a-z]/;
+    var digitRegex = /\d/;
+    var specialCharRegex = /[@#%&*-]/;
+
+    // Check if the password meets the criteria
+    var isUppercase = uppercaseRegex.test(password);
+    var isLowercase = lowercaseRegex.test(password);
+    var isDigit = digitRegex.test(password);
+    var isSpecialChar = specialCharRegex.test(password);
+
+    // Display error message if any criteria is not met
+    var errorElement = document.getElementById('password-error');
+    if (!isUppercase || !isLowercase || !isDigit || !isSpecialChar || password.length < 6) {
+        errorElement.textContent = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+        passwordInput.setCustomValidity("Invalid password");
+    } else {
+        errorElement.textContent = "";
+        passwordInput.setCustomValidity(""); // Reset the validation message
+    }
+}
+</script>
       
                         <div class="form-outline mb-4">
                           <input type="email" id="email" class="form-control form-control-lg" name="email"/>

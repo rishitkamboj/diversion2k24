@@ -91,7 +91,7 @@ app.post('/signup', async (req, res) => {
         })
 
         // Redirect the user to the home page after successful signup
-        res.redirect('/home');}
+        res.redirect('/payment');}
     } catch (error) {
         // Log the error for debugging purposes
         console.error('Error during signup:', error);

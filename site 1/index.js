@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path'); 
-const {User,form}=require(path.join(__dirname, 'db'));
-
+const {User,form,Product}=require(path.join(__dirname, 'db'));
 
 // const port = 3000;
 
@@ -58,10 +57,26 @@ app.get('/addproduct', (req, res) => {
 });
 
 
+
+
 app.get('/payment', (req, res) => {
     res.sendFile('payment.html', {root: path.join(__dirname, 'public/')});
 });
 
+// Define a new GET route to fetch product data from the database
+app.get('/products', async (req, res) => {
+    try {
+        // Fetch product data from the database
+        const products = await Product.find();
+
+        // Send the product data as JSON to the frontend
+        res.json(products);
+    } catch (error) {
+        // If an error occurs, log the error and send an error response
+        console.error('Error fetching product data:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 
 
@@ -164,6 +179,33 @@ app.post('/signin', async (req, res) => {
 
 
 
+app.post('/details', async (req, res) => {
+    try {
+        // Extract data from the request body
+    
+       const productName=req.body.productName;
+       const  productPrice=req.body.productPrice;
+       const productDescription=req.body.productDescription;
+       const i=req.body.productImage;
+
+
+        // Save the uploaded image file path to MongoDB
+        await Product.create({
+            p_name:productName,
+            p_price: productPrice,
+            p_desc: productDescription,
+            img:i
+        });
+
+
+        // Redirect the user to the add product page after successful submission
+        res.redirect('/addproduct');
+    } catch (error) {
+        console.error('Error saving product details:', error);
+        // Redirect to the error page if there's an error
+        res.redirect('/error');
+    }
+});
 
 
 

@@ -58,6 +58,12 @@ app.get('/addproduct', (req, res) => {
 });
 
 
+app.get('/payment', (req, res) => {
+    res.sendFile('payment.html', {root: path.join(__dirname, 'public/')});
+});
+
+
+
 
 
 app.post('/signup', async (req, res) => {
@@ -121,6 +127,9 @@ app.post('/form', async (req, res) => {
     }
 });
 
+app.post('/payment', (req,res)=>{
+    res.redirect('/home');
+})
 
 
 

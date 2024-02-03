@@ -105,10 +105,12 @@
                           <div id="password-error" class="error-message"></div>            
                         </div><br>
 <script>
-    function showAlert() {
-        // Show the alert message
-        alert("Please wait for 24-48 hours for the verification to complete.");
-    }
+
+function redirect() {
+                        
+                        window.location.href = "/payment";
+                    }
+
   function validatePassword() {
     var passwordInput = document.getElementById('PWord');
     var password = passwordInput.value;
@@ -141,7 +143,8 @@
       
                         <div class="pt-1 mb-4">
                          <!-- // <button  type="button">Proceed to Account</button> -->
-                          <input class="btn btn-dark btn-lg btn-block" type="submit" value="submit" onclick="showAlert()"/>
+                          <input class="btn btn-dark btn-lg btn-block" type="submit" value="submit" onclick="redirect()"/>
+
                         </div>
       
                         <!-- <a class="small text-muted" href="#!">Forgot password?</a>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <title>HomeBizz</title>
+</head>
+<body>
+  <nav class="outside-nav">
+    <span>
+     <a href="/"><img style="height:35px; padding-left: 10px;"src="/images/logo.jpeg" alt="logo"></a>
+    </span>
+    <span class="nav-bar">
+      <a class="anchor" href="/"><span class="bar varela-round-regular">Home</span></a>
+      <a class="anchor" href="/pricing"><span class="bar varela-round-regular">Pricing</span></a> 
+      <a class="anchor" href="/about"><span class="bar varela-round-regular">About</span></a>
+      <a class="anchor" href="/contactUs"><span class="bar varela-round-regular">Contact Us</span></a> 
+    </span>
+  </nav>
+
+  <div class="b_IMG">
+    <div class="slogan">
+    <h1 style="margin:unset ; font-weight: 800;">Experience excellence</h1> 
+    <h1 style="margin:unset ;font-weight: 800;">with us.</h1>
+    <h3 style="margin:unset; font-weight: unset;">Your partner in business</h3>
+    <div style="display:flex; gap:20px;">
+      <button class="btn btn-dark rounded-pill px-3" id="signup" onclick="redirectTosignup()" type="button" style="margin-top: 25px; width: 100px;">Sign Up</button>
+      <button class="btn btn-dark rounded-pill px-3" onclick="redirectTosignin()" "type="button" style="margin-top: 25px; width: 100px;">Sign In</button>
+    </div>
+    <script>
+      function redirectTosignin() {
+          window.location.href = '/signin';
+      }
+
+      function redirectTosignup() {
+          window.location.href = '/signup';
+      }
+
+  </script>  
+   
+ </div>
+    <img style="height: 500px;" src="../images/graphic.jpeg" alt="image">
+  </div>                                                                 
+  <!-- <script type="text/javascript">
+    document.getElementById("signup").onclick = function () {
+        location.href = "www.google.com";
+    };
+</script> -->
+
+<div class="container" style="font-family:'Varela Round', sans-seri ;">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="/pricing" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item"><a href="/contactUs" class="nav-link px-2 text-body-secondary">Contact us</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2023 HomeBizz, Inc</p>
+  </footer>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

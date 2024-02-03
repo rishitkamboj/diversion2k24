@@ -51,12 +51,12 @@
                         <div>
                     
                             <label class="form-label" for="Username">Business Owner :</label>
-                            <input type="text" class="form-control form-control-lg" id="Username" name="Username"/>
+                            <input type="text" placeholder="ownername" class="form-control form-control-lg" id="Username" name="Username"/>
                     
                         </div><br>
                         <div>
                             <label class="form-label" for="Bname">Business Name :</label>
-                            <input type="tel" class="form-control form-control-lg" id="Bname" name="Bname"/>
+                            <input placeholder="name of your business" type="tel" class="form-control form-control-lg" id="Bname" name="Bname"/>
                     
                         </div><br>
                         <div>
@@ -79,16 +79,22 @@
                         </div><br>
                         <div>
                           <label class="form-label"  for="BizType">Type of Business :</label>
-                          <input type="text" placeholder="" class="form-control form-control-lg" id="BizType" name="BizType"/>                  
+                          <input type="text" placeholder="Type" class="form-control form-control-lg" id="BizType" name="BizType"/>                  
                         </div><br>
                         <div>
-                          <label class="form-label"  for="GSTIN">GSTIN :</label>
-                          <input type="text" placeholder="" class="form-control form-control-lg" id="GSTIN" name="GSTIN"/>                  
-                        </div><br>
-                        <div>
+                          <label class="form-label" for="subscription">Choose a subscription:</label>
+                          <select id="subscription" name="subscription">
+                            <option value="free" selected>Free</option>
+                            <option value="pro">Pro</option>
+                            <option value="enterprise">Enterprise</option>
+                          </select>
+                        </div>   
+                       <br>
+                        
+                        <!-- <div>
                           <label class="form-label"  for="Aadhar" maxlength = "12">Aadhar Virtual Id :</label>
                           <input type="text" placeholder="" class="form-control form-control-lg" id="Aadhar" name="Aadhar"/>                  
-                        </div><br>
+                        </div><br> -->
                         <div>
                           <label class="form-label"  for="Username" minlength="8"> Set Your Username :</label>
                           <input type="text" placeholder="" class="form-control form-control-lg" id="User" name="User"/>                  

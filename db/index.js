@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema({
     email:String,
      business_type:String,
      business_name:String,
-     verify:Number
+     verify:Number,
+     sub:String
  });
 
  const formSchema = new mongoose.Schema({

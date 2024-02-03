@@ -63,6 +63,21 @@ app.get('/payment', (req, res) => {
 });
 
 
+app.get('/products', async (req, res) => {
+    try {
+        // Fetch product data from the database
+        const products = await Product.find();
+
+        // Send the product data as JSON to the frontend
+        res.json(products);
+    } catch (error) {
+        // If an error occurs, log the error and send an error response
+        console.error('Error fetching product data:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
 
 
 

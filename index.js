@@ -62,7 +62,7 @@ app.get('/addproduct', (req, res) => {
 
 app.post('/signup', async (req, res) => {
     try {
-        const { Username, Bname, PhNo, Email, 'address-l1': address1, 'address-l2': address2, 'address-l3': address3, 'address-l4': address4, 'pincode': address5, BizType, GSTIN, Aadhar, u, PWord } = req.body;
+        const { Username, Bname, PhNo, Email, 'address-l1': address1, 'address-l2': address2, 'address-l3': address3, 'address-l4': address4, 'pincode': address5, BizType,  u, PWord ,subscription} = req.body;
 
         // Attempt to create a new user
       
@@ -80,7 +80,8 @@ app.post('/signup', async (req, res) => {
             email: Email,
              business_type: BizType,
              business_name: Bname,
-             verify:1
+             verify:1,
+             sub:subscription
         })
 
         // Redirect the user to the home page after successful signup

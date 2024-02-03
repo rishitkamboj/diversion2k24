@@ -51,39 +51,39 @@
                         <div>
                     
                             <label class="form-label" for="Username">Business Owner :</label>
-                            <input type="text" placeholder="ownername" class="form-control form-control-lg" id="Username" name="Username"/>
+                            <input type="text" placeholder="ownername" class="form-control form-control-lg" required id="Username" name="Username"/>
                     
                         </div><br>
                         <div>
                             <label class="form-label" for="Bname">Business Name :</label>
-                            <input placeholder="name of your business" type="tel" class="form-control form-control-lg" id="Bname" name="Bname"/>
+                            <input placeholder="name of your business" type="tel" class="form-control form-control-lg" required id="Bname" name="Bname"/>
                     
                         </div><br>
                         <div>
-                            <label class="form-label" for="PhNo" maxlength = "10">Contact Number :</label>
-                            <input type="text" class="form-control form-control-lg" id="PhNo" name="PhNo"/>
+                            <label class="form-label" for="PhNo"  maxlength="10">Contact Number :</label>
+                            <input type="text" class="form-control form-control-lg" id="PhNo" name="PhNo" required />
                     
                         </div><br>
                         <div>
                             <label class="form-label"  for="Email">Email :</label>
-                            <input type="email" placeholder="business@example.com" class="form-control form-control-lg" id="Email" name="Email"/>
+                            <input type="email" placeholder="business@example.com" class="form-control form-control-lg" required id="Email" name="Email"/>
                     
                         </div><br>
                         <div>
                             <label class="form-label"  for="Address"> Business Address :</label>
-                            <input type="text" placeholder="Street Address" class="form-control form-control-lg" id="address-l1" name="address-l1"/><br>
-                            <input type="text" placeholder="Street Address Line 2" class="form-control form-control-lg" id="address-l2" name="address-l2"/><br>
-                            <input type="text" placeholder="City" class="form-control form-control-lg" id="address-l3" name="address-l3"/><br>
-                            <input type="text" placeholder="State" class="form-control form-control-lg" id="address-l4" name="address-l4"/><br>
-                            <input type="number" placeholder="Pincode" class="form-control form-control-lg" id="pincode" name="pincode"/><br>
+                            <input type="text" placeholder="Street Address" class="form-control form-control-lg" required id="address-l1" name="address-l1"/><br>
+                            <input type="text" placeholder="Street Address Line 2" class="form-control form-control-lg" required id="address-l2" name="address-l2"/><br>
+                            <input type="text" placeholder="City" class="form-control form-control-lg" id="address-l3" required name="address-l3"/><br>
+                            <input type="text" placeholder="State" class="form-control form-control-lg" id="address-l4" required name="address-l4"/><br>
+                            <input type="number" placeholder="Pincode" class="form-control form-control-lg" id="pincode" required name="pincode"/><br>
                         </div><br>
                         <div>
                           <label class="form-label"  for="BizType">Type of Business :</label>
-                          <input type="text" placeholder="Type" class="form-control form-control-lg" id="BizType" name="BizType"/>                  
+                          <input type="text" placeholder="Type" class="form-control form-control-lg" required id="BizType" name="BizType"/>                  
                         </div><br>
                         <div>
                           <label class="form-label" for="subscription">Choose a subscription:</label>
-                          <select id="subscription" name="subscription">
+                          <select id="subscription" name="subscription" >
                             <option value="free" selected>Basic</option>
                             <option value="pro">Pro</option>
                             <option value="enterprise">Enterprise</option>
@@ -97,11 +97,11 @@
                         </div><br> -->
                         <div>
                           <label class="form-label"  for="Username" minlength="8"> Set Your Username :</label>
-                          <input type="text" placeholder="" class="form-control form-control-lg" id="User" name="User"/>                  
+                          <input type="text" placeholder="" class="form-control form-control-lg" id="User" required name="User"/>                  
                         </div><br>
                         <div>
                           <label class="form-label"  for="PWord" minlength="6"  > Set Your Password :</label>
-                          <input type="password" placeholder="" class="form-control form-control-lg" id="PWord" name="PWord" oninput="validatePassword()"/>      
+                          <input type="password" placeholder="" class="form-control form-control-lg" id="PWord" name="PWord" required oninput="validatePassword()"/>      
                           <div id="password-error" class="error-message"></div>            
                         </div><br>
 <script>

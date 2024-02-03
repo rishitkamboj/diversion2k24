@@ -1,7 +1,7 @@
 # diversion2k24
 # HomeBizz
 
-HomeBizz is a platform dedicated to empowering women and homemakers through home-based businesses, providing a source of income and economic independence.
+HomeBizz is a platform dedicated to empowering homemakers through home-based businesses, providing a source of income and economic independence. In India, majority of the homemakers being women, this platform aligns with the government's initiative of "_Naari shakti_", and also governments push for rural development.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ To get started, visit [HomeBizz](https://www.homebizz.in) and sign up for either
 
 ## About Section
 
-Learn more about HomeBizz and the initiative to support women and homemakers in the about section.
+Learn more about HomeBizz and the initiative for rural development and women empowerment in the about section.
 
 ## Contact and Support
 

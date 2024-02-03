@@ -24,14 +24,19 @@ const userSchema = new mongoose.Schema({
 });
 
 
- const productSchema=new mongoose.Schema({
+const productSchema = new mongoose.Schema({
+    p_name:String,
+    p_price:Number,
+    p_desc:String,
+    img:String
+});
 
- });
-
+// Create a model based on the schema
+const Product = mongoose.model('Product', productSchema);
 const form=mongoose.model('forms',formSchema);
  const User = mongoose.model('users', userSchema);
 
  module.exports={
-     User,form
+     User,form,Product
  }
  

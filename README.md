@@ -9,7 +9,7 @@ HomeBizz is a platform dedicated to <ins>empowering homemakers through home-base
  -> **Clone this repository locally in your code editor** <br>
  -> **Build the application locally using the below command in the bash shell** <br>
 > npm i express mongoose path 
- **And after that type in the given command** <br>
+ **And after that type in the given command** <br><br>
 > node index.js  
  **Now in the browser type in the following** 
 > http://localhost:3000/

@@ -5,14 +5,14 @@ HomeBizz is a platform dedicated to <ins>empowering homemakers through home-base
 ## Getting Started
 
 ### To get started,
-#### Frok this repository (repo name is Diversion2k24)
-#### Clone this repository locally in your code editor
-#### Build the application locally using the command in the bash shell
+#### -> Frok this repository (repo name is Diversion2k24)
+#### -> Clone this repository locally in your code editor
+#### -> Build the application locally using the command in the bash shell
 > npm i express mongoose path
 #### And after that type in the command
 > node index.js
 
-##Sign up for either a business owner or customer account.
+## Sign up for either a business owner or customer account.
 
 ### Business Owner
 - Complete the business setup to showcase your products or services.

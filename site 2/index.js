@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path'); 
-const {User,Product,Order}=require(path.join(__dirname, 'db'));
+const {User,Product,Order,checkin}=require(path.join(__dirname, 'db'));
 
 // const port = 3000;
 
@@ -60,7 +60,7 @@ app.get('/checkout', (req, res) => {
 
 app.post('/buy', async (req, res) => {
     try {
-        console.log(req.body);
+       
         // Extract the product data from the request body
         const { p_id, p_name, p_price, p_desc, img } = req.body;
 
@@ -68,7 +68,7 @@ app.post('/buy', async (req, res) => {
         const order = await Order.findOne({ p_id: p_id });
 
         // Log the request body for debugging
-        console.log(req.body);
+      
 
         if (order) {
             // If the order exists, increment the quantity and save
@@ -95,6 +95,35 @@ app.post('/buy', async (req, res) => {
         res.redirect('/error');
     }
 });
+
+
+app.post('/checkout', async (req, res) => {
+    try {
+       
+        // Extract the product data from the request body
+        const { firstName,lastName,userName,email,add1,add2,country,state,zip } = req.body;
+
+      
+            await checkin.create({
+                firstName:firstName,
+                lastName:lastName,
+                userName:userName,
+                email:email,
+                add1:add1,
+                add2:add1,
+                country:country,
+                state:state,
+                zip:zip,
+            });
+            res.redirect('/payment');
+        }
+     catch (error) {
+        // Log the error for debugging purposes
+        console.error('Error during buy request:', error);
+     
+        // Redirect to the error page
+        res.redirect('/error');}
+    });
 
 
 

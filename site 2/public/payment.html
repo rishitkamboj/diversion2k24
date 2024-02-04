@@ -86,6 +86,13 @@
 
             if (paymentMethod === 'upi' || paymentMethod === 'cod') {
                 creditCardDetails.style.display = 'flex';
+                if(paymentMethod==='upi' && paymentMethod!='cod'){
+                    var img = document.createElement('img');
+                img.src = '../images/qr.png';
+               img.alt = 'Description of the image';
+               img.width = 400; // Adjust width as needed
+               img.height = 350; // Adjust height as needed
+                }
             } else {
                 creditCardDetails.style.display = 'none';
             }

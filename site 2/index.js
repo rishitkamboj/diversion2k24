@@ -138,6 +138,10 @@ const cartItems=await Order.find();
     });
 
 
+app.get('/preorder', (req, res) => {
+    res.sendFile('preorders.html', {root: path.join(__dirname, 'public/')});
+})
+
 
 // app.get('/cart', async (req, res) => {
 //     try {

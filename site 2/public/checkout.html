@@ -237,9 +237,44 @@
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
       <script>
-      function payment() {
-                        
-        window.location.href = "/payment";}
+    function payment() {
+    // Perform form validation
+    var isValid = validateForm();
+
+    // If the form is not valid, prevent redirection
+    if (!isValid) {
+      alert("Please fill in all required fields before proceeding to checkout.");
+      return false;
+    }
+
+    // If the form is valid, proceed to the payment page
+    window.location.href = "/payment";
+  }
+  function validateForm() {
+    // Add your form validation logic here
+    // Check if all required fields are filled
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var username = document.getElementById("username").value;
+    var address = document.getElementById("address").value;
+    var country = document.getElementById("country").value;
+    var state = document.getElementById("state").value;
+    var zip = document.getElementById("zip").value;
+
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      username === "" ||
+      address === "" ||
+      country === "" ||
+      state === "" ||
+      zip === ""
+    ) {
+      return false; // Form is not valid
+    }
+
+    return true; // Form is valid
+  }
     </script>
 
   <script src="checkout.js"></script>

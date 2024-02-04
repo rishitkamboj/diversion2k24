@@ -96,65 +96,108 @@
     <!-- Custom styles for this template -->
     <link href="checkout.css" rel="stylesheet">
   </head>
-    <title>Document</title>
+    <title>Cart</title>
 </head>
 <body style="display: flex;justify-content: center;padding-top: 65px;background-color: #FCF7F3;">
-    <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
+  <div class="col-md-5 col-lg-4 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span class="text-success">−$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-        <form class="card p-2">
+          <span class="badge bg-primary rounded-pill" id="totalPriceBadge"></span>
+      </h4>
+      <ul class="list-group mb-3" id="cartList">
+          <!-- Cart items will be dynamically added here -->
+      </ul>
+      <form class="card p-2">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
+              <input type="text" class="form-control" placeholder="Promo code">
+              <button type="submit" class="btn btn-secondary">Redeem</button>
           </div>
-        </form>
-        <br>
-        <div>
-            <button class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px; " onclick="redirectTocheck()">Continue To Checkout</button>
-            <!-- <input type="submit" class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px;" value="Continue To Checkout"> -->
-        </div>
+      </form>
+      <br>
+      <div>
+          <button class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px; " onclick="redirectTocheck()">Continue To Checkout</button>
       </div>
+  </div>
+
     <script>
-      function redirectTocheck() {
-                        
-        window.location.href = "/checkout";}
+       function fetchCartItems() {
+    // Make an AJAX request to your server endpoint
+    fetch('/fetch-cart-items')
+      .then(response => response.json())
+      .then(data => {
+        // Once data is received, update the cart section
+        updateCartUI(data);
+      })
+      .catch(error => console.error('Error fetching cart items:', error));
+  }
+
+  // Function to update the cart section in the UI
+  function updateCartUI(cartItems) {
+    console.log(cartItems);
+            let cartList = document.getElementById('cartList');
+            cartList.innerHTML = '';
+            if (cartItems.length === 0) {
+                cartList.innerHTML = '<li class="list-group-item">No orders available</li>';
+            } else {
+                let totalPrice = 0; // Initialize total price
+                cartItems.forEach(item => {
+                    let li = document.createElement('li');
+                    li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'lh-sm');
+                    li.innerHTML = `
+                        <div>
+                            <h6 class="my-0">${item.p_name}</h6>
+                            <small class="text-body-secondary">${item.p_desc}</small>
+                        </div>
+                        <span class="text-body-secondary">Rs.${item.p_price}/-</span>
+                    `;
+                    cartList.appendChild(li);
+                    totalPrice += item.p_price; // Accumulate item prices
+                });
+                // Update the total price badge
+                document.getElementById('totalPriceBadge').innerText = `Total: Rs.${totalPrice.toFixed(2)}`;
+            }
+        }
+
+
+  // Call the fetchCartItems function when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchCartItems();
+  });
+
+
+
+  // Function to delete cart items and redirect to the checkout page
+async function deleteCartAndRedirectToCheckout() {
+    try {
+        // Make a POST request to the backend to delete cart items
+        const response = await fetch('/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Assuming you're sending JSON data
+            },
+            // You can send additional data in the request body if needed
+            // body: JSON.stringify({ /* Additional data */ }),
+        });
+
+        // Check if the request was successful
+        if (response.ok) {
+            // Cart items deleted successfully, redirect to the checkout page
+            window.location.href = "/checkout";
+        } else {
+            // Handle errors or display a message to the user
+            console.error('Error deleting cart items:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error deleting cart items:', error);
+    }
+}
+
+// Function to handle click event on "Continue To Checkout" button
+function redirectTocheck() {
+    // Call the function to delete cart items and redirect to the checkout page
+    deleteCartAndRedirectToCheckout();
+}
+
     </script>
 </body>
 </html>

@@ -57,6 +57,10 @@ app.get('/checkout', (req, res) => {
     res.sendFile('checkout.html', {root: path.join(__dirname, 'public/')});
 });
 
+app.get('/preorder', (req, res) => {
+    res.sendFile('preorders.html', {root: path.join(__dirname, 'public/')});
+});
+
 
 app.post('/buy', async (req, res) => {
     try {
@@ -166,8 +170,6 @@ app.get('/products', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
-
-
 
 
 app.post('/signup', async (req, res) => {

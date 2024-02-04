@@ -10,7 +10,7 @@
 
 <body style="display:flex ;justify-content: center; padding-top: 125px; ">
   <div style="border: solid 0.5px;" class="card">
-    <button class="dismiss" type="button">×</button>
+    <button class="dismiss" type="button" onclick="homepage()">×</button>
     <div class="header">
       <div class="image">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +28,7 @@
       </div>
       <div class="actions">
         <button class="history" type="button" onclick="homepage()">Home</button>
-        <button class="track" type="button">Order history</button>
+        <button class="track" type="button" onclick="orderhis()">Order history</button>
       </div>
     </div>
   </div>
@@ -36,6 +36,10 @@
     function homepage() {
                       
       window.location.href = "/home";}
+      function orderhis() {
+                      
+                      window.location.href = "/preorder";}
+
   </script>
 </body>
 

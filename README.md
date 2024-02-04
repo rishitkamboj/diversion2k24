@@ -16,11 +16,11 @@ HomeBizz is a platform dedicated to <ins>empowering homemakers through home-base
 
 ## Sign up for either a business owner or customer account.
 
-### Business Owner
+### Business Owner (Site 1)
 - Complete the business setup to showcase your products or services.
 - Set pricing and provide necessary details for customers.
 
-### Customer
+### Customer (Site 2)
 - Explore businesses and make purchases or orders.
 
 ## About Section

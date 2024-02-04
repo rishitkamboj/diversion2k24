@@ -29,11 +29,7 @@ Learn more about HomeBizz and the initiative for rural development and women emp
 
 ## Contact and Support
 
-For support or inquiries, please contact our support team at support@homebizz.in.
-
-## Terms of Service and Privacy Policy
-
-Read our [Terms of Service](https://www.homebizz.in/terms) and [Privacy Policy](https://www.homebizz.in/privacy) for more information.
+For support or inquiries, please contact our support team at homebizz@gmail.com.
 
 ---
 

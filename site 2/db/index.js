@@ -12,6 +12,18 @@ const customer = new mongoose.Schema({
  });
 
 
+ const check=new mongoose.Schema({
+    firstName:String,
+    lastName:String,
+    userName:String,
+    email:String,
+    add1:String,
+    add2:String,
+    country:String,
+    state:String,
+    zip:Number,
+ })
+
 
 const productSchema = new mongoose.Schema({
     p_id:Number,
@@ -35,8 +47,9 @@ const Product = mongoose.model('Product', productSchema);
 
  const User = mongoose.model('usercus', customer);
  const Order=mongoose.model('orders',order);
+ const checkin=mongoose.model('checkout',check);
 
  module.exports={
-     User,Product,Order
+     User,Product,Order,checkin
  }
  

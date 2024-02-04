@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.listen(process.env.PORT || 3000);
 
-
+// Express route for handling checkout requests
 
 
 app.get('/favicon.ico', (req, res) => {
@@ -126,6 +126,18 @@ app.post('/checkout', async (req, res) => {
     });
 
 
+    app.get('/fetch-cart-items',async (req,res)=>{
+        try{
+const cartItems=await Order.find();
+        res.json(cartItems);}
+        catch (error) {
+            // If an error occurs, log the error and send an error response
+            console.error('Error fetching product data:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+
 
 // app.get('/cart', async (req, res) => {
 //     try {
@@ -221,6 +233,25 @@ app.post('/signin', async (req, res) => {
         res.redirect('/error');
     }
 });
+
+
+    app.post('/delete', async (req, res) => {
+        try {
+            // Delete all cart items from the database
+            await Order.deleteMany({});
+            console.log('Cart items deleted successfully.');
+            // Redirect the user to the payment page after successful deletion
+            res.redirect('/payment');
+        } catch (error) {
+            // Log the error for debugging purposes
+            console.error('Error during deletion:', error);
+            // Redirect to the error page
+            res.redirect('/error');
+        }
+    });
+
+
+
 
 
 

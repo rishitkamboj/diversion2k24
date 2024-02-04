@@ -30,7 +30,7 @@ app.get('/error', (req, res) => {
 });
 
 app.get('/signup', (req, res) => {
-    res.sendFile('signup.html', {root: path.join(__dirname, 'public/')});
+    res.sendFile('main.html', {root: path.join(__dirname, 'public/')});
 });
 
 

@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 mongoose.connect('mongodb+srv://rishitkamboj24:ilovesis@cluster0.hlpepga.mongodb.net/HomeBizz')
 
 
+
 const userSchema = new mongoose.Schema({
      username:String, 
      password:String,
@@ -24,7 +25,10 @@ const userSchema = new mongoose.Schema({
 });
 
 
+
+
 const productSchema = new mongoose.Schema({
+    p_id:Number,
     p_name:String,
     p_price:Number,
     p_desc:String,

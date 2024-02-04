@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path'); 
-const {User,Product}=require(path.join(__dirname, 'db'));
+const {User,Product,Order}=require(path.join(__dirname, 'db'));
 
 // const port = 3000;
 
@@ -39,8 +39,75 @@ app.get('/signin', (req, res) => {
     res.sendFile('signin.html', {root: path.join(__dirname, 'public/')});
 });
 
+app.get('/payment', (req, res) => {
+    res.sendFile('payment.html', {root: path.join(__dirname, 'public/')});
+});
 
 
+app.get('/confirm', (req, res) => {
+    res.sendFile('confirmation.html', {root: path.join(__dirname, 'public/')});
+});
+
+
+app.get('/cart', (req, res) => {
+    res.sendFile('cart.html', {root: path.join(__dirname, 'public/')});
+});
+
+app.get('/checkout', (req, res) => {
+    res.sendFile('checkout.html', {root: path.join(__dirname, 'public/')});
+});
+
+
+app.post('/buy', async (req, res) => {
+    try {
+        console.log(req.body);
+        // Extract the product data from the request body
+        const { p_id, p_name, p_price, p_desc, img } = req.body;
+
+        // Look up the order in the database based on the product ID
+        const order = await Order.findOne({ p_id: p_id });
+
+        // Log the request body for debugging
+        console.log(req.body);
+
+        if (order) {
+            // If the order exists, increment the quantity and save
+            order.quantity += 1;
+            await order.save();
+            res.redirect('/home');
+        } else {
+            // If the order doesn't exist, create a new one
+            await Order.create({
+                p_id: p_id,
+                p_name: p_name,
+                p_price: p_price,
+                p_desc: p_desc,
+               img: img,
+                quantity: 1
+            });
+            res.redirect('/home');
+        }
+    } catch (error) {
+        // Log the error for debugging purposes
+        console.error('Error during buy request:', error);
+
+        // Redirect to the error page
+        res.redirect('/error');
+    }
+});
+
+
+
+// app.get('/cart', async (req, res) => {
+//     try {
+//         // Fetch cart items from the database
+//         const cartItems = await Order.find();
+//         res.json(cartItems);
+//     } catch (error) {
+//         console.error('Error fetching cart items:', error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// });
 
 
 

@@ -147,9 +147,16 @@
         </form>
         <br>
         <div>
-            <button class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px;">Continue To Checkout</button>
+            <button class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px; " onclick="redirectTocheck()">Continue To Checkout</button>
+            <!-- <input type="submit" class="w-100 btn btn-primary btn-lg" style="border: solid 0.5px;border-radius: 10px;padding: 10px;" value="Continue To Checkout"> -->
         </div>
       </div>
-    
+    <script>
+      function redirectTocheck() {
+                        
+        window.location.href = "/checkout";}
+    </script>
 </body>
 </html>
+
+

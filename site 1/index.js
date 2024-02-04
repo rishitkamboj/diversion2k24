@@ -12,6 +12,8 @@ app.use(express.json());
 
 app.listen(process.env.PORT || 3000);
 
+var id=0;
+
 
 
 
@@ -191,6 +193,7 @@ app.post('/details', async (req, res) => {
 
         // Save the uploaded image file path to MongoDB
         await Product.create({
+            p_id:++id,
             p_name:productName,
             p_price: productPrice,
             p_desc: productDescription,
